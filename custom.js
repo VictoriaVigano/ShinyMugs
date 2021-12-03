@@ -1,12 +1,3 @@
-
-//let nombreUsuario = prompt("Bienvenido! Como te llamas?");
-
-//alert("Hola " + nombreUsuario);
-
-//console.log("Hola " + " " + nombre + " " + apellido);
-
-
-
 //variables
 let allContainerCart = document.querySelector('.products');
 let containerBuyCart = document.querySelector('.card-items');
@@ -109,3 +100,28 @@ function loadHtml(){
 function clearHtml(){
     containerBuyCart.innerHTML = '';
 }
+
+<div class="popup">
+  <h2>Register</h2>
+  <p>Please enter your details here</p>
+  <form method="get" action="" onsubmit="return store(this);" id="register">
+    <label for="email">User Name</label>
+    <input type="text" id="username" placeholder="Select A User Name" required value="" /><br />
+    <label for="pass">Password</label>
+    <input type="password" id="password" placeholder="Select A Password" required value="" /><br />
+    <input type="submit" value="Register" />
+  </form>
+</div>
+<br />
+<div class="popup">
+  <h2>Welcome Guest!</h2>
+  <p>Please enter your login and password here</p>
+  <form method="get" action="" onsubmit="return login(this);" id="signon">
+    <label for="email">User Name </label>
+    <input type="text" id="username" placeholder="Your Password" required value="" /><br />
+    <label for="password">Password</label>
+   <input type="password" id="password" placeholder="Your Password" required value="" /><br />
+   <input type="submit" value="Log In" />
+  </form>
+<a class="close" href="#close"></a>
+</div>
