@@ -125,3 +125,36 @@ function clearHtml(){
   </form>
 <a class="close" href="#close"></a>
 </div>
+
+
+$(document).ready(function() {
+    ...
+    // send API request
+    $.ajax({
+        url: 'https://api.email-validator.net/api/verify',
+        type: 'POST',
+        cache: false,
+        crossDomain: true,
+        data: { EmailAddress: 'email address', APIKey: 'your API key' },
+        dataType: 'json',
+        success: function (json) {
+            // check API result
+            if (typeof(json.status) != "undefined") {
+                var resultcode = json.status;
+                if (typeof(json.info) != "undefined") {
+                    // short summary
+                    info = json.info;
+                } else info = "";
+                if (typeof(json.details) != "undefined") {
+                    // detailed description
+                    details = json.details;
+                } else details = "";
+                // resultcode 200, 207, 215 - valid
+                // resultcode 215 - can be retried to update catch-all status
+                // resultcode 114 - greylisting, wait 5min and retry
+                // resultcode 118 - api rate limit, wait 5min and retry
+                // resultcode 3xx/4xx - bad
+            }
+        }
+    });
+});
